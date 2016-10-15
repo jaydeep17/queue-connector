@@ -54,3 +54,6 @@ jspm_packages
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
+
+# useless
+/src/test.js
