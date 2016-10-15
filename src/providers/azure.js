@@ -13,14 +13,16 @@ class AzureProvider extends AbstractProvider {
    * The constructor establishes the connection the the queue
    * @param connStr Connection string of the service bus namespace
    * @param queueName The name of an already created queue
+   * @param otherOptions Options like (timeoutIntervalInS)
    */
-  constructor(connStr, queueName) {
+  constructor(connStr, queueName, otherOptions = {}) {
     super();
     if (!connStr) throw new Error('Must provide connection string');
     if (!queueName) throw new Error('Must provide queue name');
 
     this.sbService = azure.createServiceBusService(connStr);
     this.queueName = queueName;
+    this.otherOptions = otherOptions;
   }
 
   /**
@@ -45,7 +47,10 @@ class AzureProvider extends AbstractProvider {
    * @param cb The callback to call with the result
    */
   receiveMessage(cb) {
-    const options = {isPeekLock: true};
+    const options = {
+      isPeekLock: true,
+      timeoutIntervalInS: this.otherOptions.timeoutIntervalInS || 10
+    };
     this.sbService.receiveQueueMessage(this.queueName, options, cb);
   }
 
