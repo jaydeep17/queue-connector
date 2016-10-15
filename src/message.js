@@ -27,7 +27,10 @@ class Message {
       case availableProviders.AZURE:
         return this.data.body;
       case availableProviders.AWS:
-        return this.data.Messages[0].Body;
+        const messages = this.data.Messages;
+        if (messages && messages.length > 0)
+          return messages[0].Body;
+        return '';
       default:
         throw new Error('provider not registered in message class');
     }
