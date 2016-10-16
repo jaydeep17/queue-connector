@@ -45,6 +45,22 @@ const queue = new QueueConnector.Queue(serviceBus);
 // use the queue object with the same API as the above example
 ```
 
+## API
+
+### new AwsProvider(awsCredentials, sqsQueueUrl, [options])
+Creates a new AWS SQS queue provider.
+* **awsCredentials** : the same awsCredentials that aws-sdk takes
+* **sqsQueueUrl** : the queue url provided by AWS
+* **[options]** :
+    * **WaitTimeSeconds**: The request timeout for long polling
+
+### new AzureProvider(connStr, queueName, [options])
+Creates a new Azure Service Bus queue provider
+* **connStr** : Connection string to the Service Bus
+* **queueName** : Name of the queue
+* **[options]** :
+    * **timeoutIntervalInS**: The request timeout for long polling
+
 ## Adding more providers
 Currently this lib has only AWS SQS and Azure Service Bus provider, if you need any more providers, please feel free to send in a pull request :)
 
