@@ -1,6 +1,6 @@
 {
   "name": "queue-connector",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Provides an abstraction layer for various Cloud providers' queue implementation, like AWS SQS, Azure Service bus, etc.",
   "main": "index.js",
   "scripts": {
