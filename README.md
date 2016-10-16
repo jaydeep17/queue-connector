@@ -64,3 +64,8 @@ Creates a new Azure Service Bus queue provider
 ## Adding more providers
 Currently this lib has only AWS SQS and Azure Service Bus provider, if you need any more providers, please feel free to send in a pull request :)
 
+## TODO
+- [ ] Add Tests
+- [ ] Use Flow for type checking
+- [ ] Create TypeScript definition file (for autoCompletion in webstorm, don't know if required after flow)
+
